@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-base-950 text-ink-100 font-body antialiased;
+    background-image:
+      radial-gradient(60% 40% at 10% 0%, rgba(11,122,107,0.06) 0%, rgba(11,122,107,0) 60%),
+      radial-gradient(50% 35% at 100% 10%, rgba(47,190,95,0.06) 0%, rgba(47,190,95,0) 60%);
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid #0B8570;
+    outline-offset: 2px;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: #D7E8E2; border-radius: 999px; }
+}
+
+@layer components {
+  .app-shell {
+    @apply relative mx-auto flex h-full min-h-screen w-full max-w-md flex-col overflow-hidden bg-base-950;
+  }
+  .card {
+    @apply rounded-xl2 border border-black/[0.04] bg-base-850 bg-card-sheen p-5 shadow-card;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-6 py-3.5 font-display text-sm font-semibold text-white transition active:scale-[0.97];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3.5 text-sm font-medium text-ink-100 shadow-card transition active:scale-[0.97];
+  }
+  .chip {
+    @apply rounded-full border border-black/[0.06] bg-violet-500/10 px-3 py-1.5 text-xs font-medium text-violet-600;
+  }
+  .input-field {
+    @apply w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-sm text-ink-100 placeholder:text-ink-500 outline-none focus:border-violet-400/60;
+  }
+}
